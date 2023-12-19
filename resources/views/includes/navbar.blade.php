@@ -6,18 +6,25 @@
                     <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
+
             </div>
+
             <div class="top-right">
                 <div class="header-menu">
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                             <div class="font-weight-bold text-dark">{{ Auth::user()->name }}</div>
+                            <img class="user-avatar rounded-circle" src="{{ Storage::url($users->profile_photo_path) }}" alt="User Avatar">
                         </a>
-
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="{{ route('profile.show') }}"><i class="fa fa-power -off"></i>Profile</a>
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+
+                                <button class="btn btn-danger btn-xs" type="submit">Logout</button>
+                            </form>
                         </div>
                     </div>
 
