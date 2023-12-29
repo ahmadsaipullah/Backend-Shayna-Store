@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title','Halamana Two Factor')
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />

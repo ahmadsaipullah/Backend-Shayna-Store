@@ -13,7 +13,6 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        $users = User::find(1);
-        return view('pages.dashboard', compact('users'));
+        return view('pages.dashboard');
     }
 }
